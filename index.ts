@@ -1,95 +1,118 @@
 #! /usr/bin/env node
-import inquirer from "inquirer";
 
-const quiz: {
-  question_1: string;
-  question_2: string;
-  question_3: string;
-  question_4: string;
-  question_5: string;
-} = await inquirer.prompt([
+console.log("\n*****WELCOME TO QUIZ SYSTEM*****\n");
+
+import inquirer from "inquirer"; //import module inquirer
+
+const quiz: { //take input answers of questions
+  question1: string;
+  question2: string;
+  question3: string;
+  question4: string;
+  question5: string;
+} = await inquirer.prompt([ //take input answers of questions
   {
-    name: "question_1",
+    name: "question1",
     type: "list",
-    message:
-      "Q1.HTML stands for?",
-    choices: ["HighText Machine Language", "HyperText and links Markup Language", "HyperText Markup Language", "None of these"],
+    message: "Q1.HTML stands for?",
+    choices: [
+      "HighText Machine Language",
+      "HyperText and links Markup Language",
+      "HyperText Markup Language",
+      "None of these",
+    ],
   },
   {
-    name: "question_2",
+    name: "question2",
     type: "list",
-    message:
-      "Q2.What are the three main 'simple types' in TypeScript?",
-    choices: ["Object, Array, Symbol", "Array, Object, Boolean", "Object, String, Number","Boolean, Number, String"],
+    message: "Q2.What are the three main 'simple types' in TypeScript?",
+    choices: [
+      "Object, Array, Symbol",
+      "Array, Object, Boolean",
+      "Object, String, Number",
+      "Boolean, Number, String",
+    ],
   },
   {
-    name: "question_3",
+    name: "question3",
     type: "list",
     message:
       "Q3.________ an interface will have the same properties as that interface.",
     choices: ["Idolizing", "Duplicating", "Extending", "Improving"],
   },
   {
-    name: "question_4",
+    name: "question4",
     type: "list",
-    message:
-      "Q4.The full form of CSS is:",
-    choices: ["Coloured Special Sheets", "Cascading Style Sheets", "Colour and Style Sheets", "None of the above"],
+    message: "Q4.The full form of CSS is:",
+    choices: [
+      "Coloured Special Sheets",
+      "Cascading Style Sheets",
+      "Colour and Style Sheets",
+      "None of the above",
+    ],
   },
   {
-    name: "question_5",
+    name: "question5",
     type: "list",
     message:
       "Q5.Which command would you use to install TypeScript globally using npm?",
-    choices: ["npm install typescript", "npm global install typescript", "npm install -g typescript", "npm typescript install global"],
+    choices: [
+      "npm install typescript",
+      "npm global install typescript",
+      "npm install -g typescript",
+      "npm typescript install global",
+    ],
   },
 ]);
+console.log("");
 
 let score: number = 0;
 
-switch (quiz.question_1) {
+switch (quiz.question1) { //checking of answers
   case "HyperText Markup Language":
-    console.log("1. Correct!");
+    console.log("1. Your answer is correct!");
     ++score;
     break;
   default:
-    console.log("1. Incorrect!");
+    console.log("1. Sorry! your answer is incorrect!");
 }
 
-switch (quiz.question_2) {
+switch (quiz.question2) {
   case "Boolean, Number, String":
-    console.log("2. Correct!");
+    console.log("2. Your answer is correct!");
     ++score;
     break;
   default:
-    console.log("2. Incorrect!");
+    console.log("2. Sorry! your answer is incorrect!");
 }
-
-switch (quiz.question_3) {
+switch (quiz.question3) {
   case "Extending":
-    console.log("3. Correct!");
+    console.log("3. Your answer is correct!");
     ++score;
     break;
   default:
-    console.log("3. Incorrect!");
+    console.log("3. Sorry! your answer is incorrect!");
 }
 
-switch (quiz.question_4) {
+switch (quiz.question4) {
   case "Cascading Style Sheets":
-    console.log("4. Correct!");
+    console.log("4. Your answer is correct!");
     ++score;
     break;
   default:
-    console.log("4. Incorrect!");
+    console.log("4. Sorry! your answer is incorrect!");
 }
 
-switch (quiz.question_5) {
+switch (quiz.question5) {
   case "npm install -g typescript":
-    console.log("5. Correct!");
+    console.log("5. Your answer is correct!");
     ++score;
     break;
   default:
-    console.log("5. Incorrect!");
+    console.log("5. Sorry! your answer is incorrect!");
 }
+console.log("");
 
-console.log(`Score: ${score}`);
+console.log(`You have Scored: ${score}\n`);
+console.log("*****THANKS FOR YOUR INTEREST*****");
+process.exit();
